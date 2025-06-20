@@ -30,8 +30,7 @@ body {
     z-index: 2;
 }
 
-
-   .questions h4 {
+.questions h4 {
     color: #ffffff;
     position: relative;
     z-index: 2;
@@ -40,13 +39,13 @@ body {
     font-size: 1.5em;       
 } 
 
-#question2 {
-    display: none;
+/* Ensure question2 is visible by default */
+#questions2 {
+    z-index: 2;
+    position:relative;
 }
 
-.result {
-    display: none;
-}
+
 .questions img {
     width: 100%;
     max-width: 500px;
@@ -60,7 +59,6 @@ body {
     box-sizing: content-box;
 }
 
-
 .button-group {
     display: flex;
     flex-direction: row;
@@ -70,13 +68,16 @@ body {
     margin-top: 18px;
 }
 
-.trait-btn {
+/* Style for both first and second question buttons */
+.trait-btn,
+#good-btn,
+#bad-btn {
     background: rgba(0,0,0,0.7);
     color: #fff;
     border: 2.5px solid #e5d95d;
     border-radius: 8px;
-    padding: 10px 0;                /* Top/bottom padding only */
-    width: 170px;                   /* Fixed width for all buttons */
+    padding: 10px 0;
+    width: 170px;
     min-width: 170px;
     max-width: 170px;
     font-size: 1em;
@@ -89,8 +90,9 @@ body {
     box-sizing: border-box;
 }
 
-
-.trait-btn:hover {
+.trait-btn:hover,
+#good-btn:hover,
+#bad-btn:hover {
     background: #e5d95d;
     color: #000;
     border-color: #fff;
@@ -111,11 +113,45 @@ body {
 }
 
 
+/* Winner result styling */
+.result.winner {
+    background-color: #222;
+    color: #e5d95d;
+    border: 2px solid #e5d95d;
+    box-shadow: 0 4px 24px rgba(229, 217, 93, 0.15);
+}
 
+.result.winner h2 {
+    margin-top: 0;
+    font-size: 2em;
+    color: #e5d95d;
+    text-shadow: 1px 1px 8px #592c90;
+}
+
+.result.winner img {
+    margin-top: 18px;
+    max-width: 320px;
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid #592c90;
+    box-shadow: 0 2px 12px rgba(89,44,144,0.18);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 @keyframes move {
     100% {
         transform: translate3d(0, 0, 1px) rotate(360deg);
     }
+}
+
+.result {
+    display: none;
+
+}
+.result.winner {
+    display: block;
+ 
 }
 
 .background {
