@@ -38,9 +38,15 @@ body {
     align-content: center;
     text-align: center;
     font-size: 1.5em;       
+} 
+
+#question2 {
+    display: none;
 }
 
-
+.result {
+    display: none;
+}
 .questions img {
     width: 100%;
     max-width: 500px;
