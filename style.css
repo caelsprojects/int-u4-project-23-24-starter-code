@@ -22,7 +22,7 @@ body {
 .questions {
     background-position: center;
     background: transparent;
-    padding: 4px;
+    padding: 20px;
     border-radius: 5px;
     margin-bottom: 20px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -30,11 +30,16 @@ body {
     z-index: 2;
 }
 
-.questions h4 {
-    color: #666;
+
+   .questions h4 {
+    color: #ffffff;
     position: relative;
     z-index: 2;
+    align-content: center;
+    text-align: center;
+    font-size: 1.5em;       
 }
+
 
 .questions img {
     width: 100%;
@@ -49,16 +54,54 @@ body {
     box-sizing: content-box;
 }
 
+
+.button-group {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+}
+
+.trait-btn {
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    border: 2.5px solid #e5d95d;
+    border-radius: 8px;
+    padding: 10px 0;                /* Top/bottom padding only */
+    width: 170px;                   /* Fixed width for all buttons */
+    min-width: 170px;
+    max-width: 170px;
+    font-size: 1em;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+.trait-btn:hover {
+    background: #e5d95d;
+    color: #000;
+    border-color: #fff;
+}
+
 /* Result section styling */
 .result {
     position: fixed;
     top: 0;
-    background-color: #e2e2e2;
+    background-color: #000000;
     text-align: center;
     padding: 20px;
     margin-top: 20px;
     border-radius: 8px;
     font-size: 1.2em;
+    position: relative;
+    z-index: 2;
 }
 
 
