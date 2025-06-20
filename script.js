@@ -4,38 +4,10 @@ let cyb = 0;
 let uh = 0;
 let eo = 0;
 let jad = 0;
-
-
-// First question buttons
-document.getElementById("cyb").addEventListener("click", showQuestion2);
-document.getElementById("eo").addEventListener("click", showQuestion2);
-document.getElementById("uh").addEventListener("click", showQuestion2);
-document.getElementById("jad").addEventListener("click", showQuestion2);
-
-function showQuestion2() {
-    // Hide first question
-    document.querySelector(".questions").style.display = "none";
-    // Show second question
-    document.getElementById("question2").style.display = "block";
-    // Show second question's buttons
-    document.getElementById("q2-buttons").style.display = "flex";
-}
-
-// You can add event listeners for the second question's buttons here
-document.getElementById("good-btn").addEventListener("click", function() {
-    // Handle "Good" answer
-    alert("You chose Good!");
-    // You can show the result or next step here
-});
-
-document.getElementById("bad-btn").addEventListener("click", function() {
-    // Handle "Bad" answer
-    alert("You chose Bad!");
-    // You can show the result or next step here
-});
-
+let good = 0;
+let bad = 0;
+// Only handle incrementing variables when buttons are clicked
 function handleButtonClick(event) {
-    // Increment the variable based on which button was clicked
     const btn = event.target;
     if (btn.id === "cyb-btn") {
         cyb++;
@@ -46,16 +18,52 @@ function handleButtonClick(event) {
     } else if (btn.id === "jad-btn") {
         jad++;
     }
-
-    document.querySelectorAll("button").forEach(btn => btn.style.display = "none");
-    const firstImg = document.querySelector("img");
-    if (firstImg) firstImg.style.display = "none";
-    const q1Title = document.querySelector("h4");
-    if (q1Title) q1Title.style.display = "none";
-    const q2Props = document.querySelectorAll(".q2-prop:not(button)");
-    q2Props.forEach(el => el.style.display = "block");
+    else if (btn.id === "good-btn") {
+        good++;
+    } else if (btn.id === "bad-btn") {
+        bad++;
+    }
+    // You can add any additional logic here if needed
 }
 
+// Attach event listeners to all relevant buttons
 document.querySelectorAll("button").forEach(btn => {
     btn.addEventListener("click", handleButtonClick);
+});
+
+// If you want to keep the "Good"/"Bad" logic:
+document.getElementById("good-btn").addEventListener("click", function() {
+    alert("You chose Good!");
+});
+document.getElementById("bad-btn").addEventListener("click", function() {
+    alert("You chose Bad!");
+});
+function checkWinner() {
+    let winner = "";
+    if (cyb > 1 && good > 1) {
+        winner = "Raiden";
+    } else if (cyb > 1 && bad > 1) {
+        winner = "V1";
+    } else if (eo > 1 && good > 1) {
+        winner = "Isabelle";
+    } else if (eo > 1 && bad > 1) {
+        winner = "Papayrus";
+    } else if (uh > 1 && good > 1) {
+        winner = "Doom Guy";
+    } else if (uh > 1 && bad > 1) {
+        winner = "Kratos";
+    } else if (jad > 1 && good > 1) {
+        winner = "Dante";
+    } else if (jad > 1 && bad > 1) {
+        winner = "Vergil";
+    }
+
+    if (winner) {
+        alert(`${winner} is the winner.`);
+    }
+}
+
+// Call checkWinner after every button click
+document.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", checkWinner);
 });
